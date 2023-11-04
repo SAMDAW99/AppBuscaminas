@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <title>Crea tu tablero de Buscaminas</title>
+</head>
+<body>
+    <h1>Crea tu tablero de Buscaminas</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Crear Tablero</button>
+    </form>
+    {% if show_alert %}
+        <script>
+            alert("El número de minas debe ser menor o igual que la mitad de casillas en el tablero.");
+        </script>
+    {% endif %}
+</body>
+</html>

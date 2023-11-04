@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tablero Buscaminas</title>
+</head>
+<body>
+    {% if tablero %}
+        <table>
+            {% for fila in tablero.casillas %}
+              <tr>
+                {% for casilla in fila %}
+                  <td>
+                    {% if casilla.contiene_mina %}
+                        &#128163;
+                    {% elif casilla.minas_adyacentes > 0 %}
+                      {{ casilla.minas_adyacentes }}
+                    {% else %}
+                    {% endif %}
+                  </td>
+                {% endfor %}
+              </tr>
+            {% endfor %}
+        </table>
+
+    {% endif %}
+<style>
+    tr,td {
+        border: 2px solid;
+        background-color: rgb(217, 218, 216);
+        border-collapse: collapse;
+        width: 40px;
+        height: 40px;
+        text-align: center;
+        font-weight: bold;
+    }
+</style>
+</body>
+</html>
